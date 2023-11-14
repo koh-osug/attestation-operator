@@ -41,5 +41,9 @@ spec:
   selector:
     {{ $rselector | nindent 4 }}
     statefulset.kubernetes.io/pod-name: {{ $rname }}-{{ $i }}
+  {{- if eq $rservicetype "LoadBalancer" }}
+  type: {{ "ClusterIP" }}
+  {{- else }}
   type: {{ $rservicetype }}
+  {{- end }}
 {{- end }}

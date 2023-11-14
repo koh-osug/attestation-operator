@@ -51,7 +51,7 @@ spec:
               mountPath: /var/lib/keylime/cv_ca/
               readOnly: true
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- include "verifier.resources" . | nindent 12 }}
       volumes:
         - name: certs
           secret:

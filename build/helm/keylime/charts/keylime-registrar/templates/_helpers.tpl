@@ -113,7 +113,18 @@ Select the load balancer IP, based on the value set on the "service" section of 
 {{- if .Values.global.service.registrar.loadBalancerIP }}
 {{- .Values.global.service.registrar.loadBalancerIP }}
 {{- else }}
-{{- .Values.registrar.loadBalancerIP }}
+{{- .Values.service.loadBalancerIP }}
+{{- end }}
+{{- end }}
+
+{{/*
+Set resources
+*/}}
+{{- define "registrar.resources" -}}
+{{- if .Values.global.service.registrar.resources }}
+{{- toYaml .Values.global.service.registrar.resources }}
+{{- else }}
+{{- toYaml .Values.resources }}
 {{- end }}
 {{- end }}
 
