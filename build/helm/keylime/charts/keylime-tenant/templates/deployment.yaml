@@ -55,7 +55,7 @@ spec:
               mountPath: /var/lib/keylime/tpm_cert_store
               readOnly: true
           resources:
-            {{- include "tenant.resources" . | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: certs
           secret:

@@ -137,8 +137,6 @@ global:
       # Default image is the from quay, default tag is tag the chart appVersion
       image:
         repository: quay.io/keylime/keylime_tenant
-      # resources for the pod
-      resources: {}
     # registrar options
     registrar:
       # Default image is the from quay, default tag is tag the chart appVersion
@@ -151,9 +149,7 @@ global:
       type: "ClusterIP"
       # the load balancer IP to use if the type is "LoadBalancer"
       loadBalancerIP: ""
-      # resources for the pod
-      resources: { }
-    # verifier options  
+    # verifier options
     verifier:
       # Default image is the from quay, default tag is tag the chart appVersion
       image:
@@ -163,10 +159,6 @@ global:
       # type of service, with "ClusterIP" as default. Switch to "NodePort" or "LoadBalancer" to allow
       # components external to the cluster to access the service
       type: "ClusterIP"
-      # the load balancer IP to use if the type is "LoadBalancer"
-      loadBalancerIP: ""
-      # resources for the pod
-      resources: {}
     # agent options
     agent:
       # Default image is the from quay, default tag is tag the chart appVersion

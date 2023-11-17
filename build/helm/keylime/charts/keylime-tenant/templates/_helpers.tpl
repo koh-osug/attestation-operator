@@ -115,14 +115,3 @@ Define a custom image tag.
 {{- toYaml .Chart.AppVersion }}
 {{- end }}
 {{- end }}
-
-{{/*
-Set resources
-*/}}
-{{- define "tenant.resources" -}}
-{{- if .Values.global.service.tenant.resources }}
-{{- toYaml .Values.global.service.tenant.resources }}
-{{- else }}
-{{- toYaml .Values.resources }}
-{{- end }}
-{{- end }}

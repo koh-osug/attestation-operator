@@ -6,9 +6,6 @@ metadata:
     {{- include "verifier.labels" . | nindent 4 }}
 spec:
   type: {{ include "verifier.serviceType" . }}
-  {{- if and (eq (include "verifier.serviceType" .) "LoadBalancer") (not (empty (include "verifier.loadBalancerIP" .))) }}
-  loadBalancerIP: {{ include "verifier.loadBalancerIP" . }}
-  {{- end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.port }}
@@ -41,9 +38,5 @@ spec:
   selector:
     {{ $rselector | nindent 4 }}
     statefulset.kubernetes.io/pod-name: {{ $rname }}-{{ $i }}
-  {{- if eq $rservicetype "LoadBalancer" }}
-  type: {{ "ClusterIP" }}
-  {{- else }}
   type: {{ $rservicetype }}
   {{- end }}
-{{- end }}

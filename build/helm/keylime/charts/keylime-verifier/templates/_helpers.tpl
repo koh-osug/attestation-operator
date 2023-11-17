@@ -107,28 +107,6 @@ Select the service type, based on the value set on the "service" section of glob
 {{- end }}
 
 {{/*
-Select the load balancer IP, based on the value set on the "service" section of global values 
-*/}}
-{{- define "verifier.loadBalancerIP" -}}
-{{- if .Values.global.service.verifier.loadBalancerIP }}
-{{- .Values.global.service.verifier.loadBalancerIP }}
-{{- else }}
-{{- .Values.service.loadBalancerIP }}
-{{- end }}
-{{- end }}
-
-{{/*
-Set resources
-*/}}
-{{- define "verifier.resources" -}}
-{{- if .Values.global.service.verifier.resources }}
-{{- toYaml .Values.global.service.verifier.resources }}
-{{- else }}
-{{- toYaml .Values.resources }}
-{{- end }}
-{{- end }}
-
-{{/*
 Expands to the PVC name of the database disk
 */}}
 {{- define "verifier.db.pvcName" -}}

@@ -118,17 +118,6 @@ Select the load balancer IP, based on the value set on the "service" section of 
 {{- end }}
 
 {{/*
-Set resources
-*/}}
-{{- define "registrar.resources" -}}
-{{- if .Values.global.service.registrar.resources }}
-{{- toYaml .Values.global.service.registrar.resources }}
-{{- else }}
-{{- toYaml .Values.resources }}
-{{- end }}
-{{- end }}
-
-{{/*
 Expands to the PVC name of the database disk
 */}}
 {{- define "registrar.db.pvcName" -}}
