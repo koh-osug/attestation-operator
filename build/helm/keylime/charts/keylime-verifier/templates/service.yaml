@@ -39,4 +39,4 @@ spec:
     {{ $rselector | nindent 4 }}
     statefulset.kubernetes.io/pod-name: {{ $rname }}-{{ $i }}
   type: {{ $rservicetype }}
-  {{- end }}
+{{- end }}
